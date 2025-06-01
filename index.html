@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Love Text Animation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playwrite+HU:wght@100..400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-color: black;
+      position: relative;
+      height: 100vh;
+         font-family: "Playwrite HU", cursive;
+              display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+    }
+
+            @keyframes stripe-slide {
+        0% {
+            background-position: 0% 0;
+        }
+        100% {
+            background-position: 100% 0;
+        }
+        }
+
+
+        .btn {
+        overflow: visible;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        font: inherit;
+        line-height: normal;
+        cursor: pointer;
+        -moz-user-select: text;
+        display: block;
+        text-decoration: none;
+        text-transform: uppercase;
+        padding: 16px 36px 22px;
+        background-color: #fff;
+        color: #666;
+        border: 2px solid #666;
+        border-radius: 6px;
+        margin-bottom: 16px;
+        transition: all 0.5s ease;
+        }
+
+        .btn:-moz-focus-inner {
+        padding: 0;
+        border: 0;
+        }
+
+        .btn--stripe {
+        overflow: hidden;
+        position: relative;
+        }
+
+        .btn--stripe:after {
+        content: '';
+        display: block;
+        height: 7px;
+        width: 100%;
+        background-image: repeating-linear-gradient(
+            45deg,
+            #666,
+            #666 1px,
+            transparent 2px,
+            transparent 5px
+        );
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        border-top: 1px solid #666;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background-size: 7px 7px;
+        }
+
+        .btn--stripe:hover {
+        background-color: #ffc3c3;
+        color: #fff;
+        border-color: #000;
+        }
+
+        .btn--stripe:hover:after {
+        background-image: repeating-linear-gradient(
+            45deg,
+            #fff,
+            #fff 1px,
+            transparent 2px,
+            transparent 5px
+        );
+        border-top: 1px solid #000;
+        animation: stripe-slide 12s infinite linear forwards;
+        }
+
+        .btn--large {
+        width: 50%;
+        }
+
+        .btn--radius {
+        border-radius: 36px;
+        }
+
+
+    .container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transform-style: preserve-3d;
+      transform: matrix(1.00, 0.00, -0.20, 1.00, 0, 0) !important;
+      -ms-transform: matrix(1.00, 0.00, -0.20, 1.00, 0, 0) !important;
+      -webkit-transform: matrix(1.00, 0.00, -0.20, 1.00, 0, 0) !important;
+            transition: all 0.4s linear;
+       display: none;     
+        font-family: "Playwrite HU", cursive;
+    }
+
+    .text {
+      position: absolute;
+      font-weight: 900;
+      color: rgb(250, 157, 172);
+      text-shadow: -2px 2px 50px rgb(255, 0, 0);
+      opacity: 0;
+      animation: transitionBottom linear forwards;
+      white-space: nowrap;
+      font-size: 16px;
+      transform-style: preserve-3d;
+      transition: transform 0.2s ease;
+       font-family: "Playwrite HU", cursive;
+    }
+
+    @keyframes transitionBottom {
+      0% {
+        opacity: 0;
+        transform: translateY(-100px) scale(1);
+      }
+      10% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      50% {
+        opacity: 1;
+        transform: translateY(200px) scale(1);
+      }
+      80% {
+        opacity: 0.8;
+        transform: translateY(400px) scale(1.05);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(600px) scale(1.2);
+      }
+    }
+
+    /* Transform cho body theo vùng */
+   .container.left--hover {
+      transform: matrix(1.00, 0.00, -0.40, 1.00, 0, 0) !important;
+      -ms-transform: matrix(1.00, 0.00, -0.40, 1.00, 0, 0) !important;
+      -webkit-transform: matrix(1.00, 0.00, -0.40, 1.00, 0, 0) !important;
+    }
+
+   .container.right--hover {
+      transform: matrix(1.00, 0.00, 0.40, 1.00, 0, 0) !important;
+      -ms-transform: matrix(1.00, 0.00, 0.40, 1.00, 0, 0) !important;
+      -webkit-transform: matrix(1.00, 0.00, 0.40, 1.00, 0, 0) !important;
+    }
+
+   .container.top--hover {
+      transform:matrix(1.00,-0.20,-0.20,1.00,0,0) !important;
+    -ms-transform:matrix(1.00,-0.20,-0.20,1.00,0,0) !important;
+    -webkit-transform:matrix(1.00,-0.20,-0.20,1.00,0,0) !important;
+    }
+
+   .container.bottom--hover {
+    transform:matrix(1.00,0.20,-0.20,1.00,0,0) !important;
+    -ms-transform:matrix(1.00,0.20,-0.20,1.00,0,0) !important;
+    -webkit-transform:matrix(1.00,0.20,-0.20,1.00,0,0) !important;
+    }
+
+   .container.top-left--hover {
+ transform:matrix(1.00,-0.20,-0.40,1.00,0,0) !important;
+-ms-transform:matrix(1.00,-0.20,-0.40,1.00,0,0) !important;
+-webkit-transform:matrix(1.00,-0.20,-0.40,1.00,0,0) !important;
+    }
+
+   .container.top-right--hover {
+transform:matrix(1.00,-0.20,0.40,1.00,0,0) !important;
+-ms-transform:matrix(1.00,-0.20,0.40,1.00,0,0) !important;
+-webkit-transform:matrix(1.00,-0.20,0.40,1.00,0,0) !important;
+    }
+
+   .container.bottom-left--hover {
+ transform:matrix(1.00,0.20,-0.40,1.00,0,0) !important;
+-ms-transform:matrix(1.00,0.20,-0.40,1.00,0,0) !important;
+-webkit-transform:matrix(1.00,0.20,-0.40,1.00,0,0) !important;
+    }
+
+   .container.bottom-right--hover {
+transform:matrix(1.00,0.20,0.40,1.00,0,0) !important;
+-ms-transform:matrix(1.00,0.20,0.40,1.00,0,0) !important;
+-webkit-transform:matrix(1.00,0.20,0.40,1.00,0,0) !important;
+    }
+
+   .container.center--hover {
+      transform: matrix(1.00, 0.00, -0.20, 1.00, 0, 0) !important;
+      -ms-transform: matrix(1.00, 0.00, -0.20, 1.00, 0, 0) !important;
+      -webkit-transform: matrix(1.00, 0.00, -0.20, 1.00, 0, 0) !important;
+    }
+
+    /* Màu text theo vùng */
+   .container.left--hover .text {
+      color: rgba(255, 100, 100, 0.8); /* Đỏ nhạt */
+    }
+
+   .container.right--hover .text {
+      color: rgba(100, 255, 100, 0.8); /* Xanh nhạt */
+    }
+
+   .container.top--hover .text {
+      color: rgba(100, 100, 255, 0.8); /* Xanh dương nhạt */
+    }
+
+   .container.bottom--hover .text {
+      color: rgba(255, 255, 100, 0.8); /* Vàng nhạt */
+    }
+
+   .container.top-left--hover .text {
+      color: rgba(255, 100, 255, 0.8); /* Tím nhạt */
+    }
+
+   .container.top-right--hover .text {
+      color: rgba(100, 255, 255, 0.8); /* Cyan nhạt */
+    }
+
+   .container.bottom-left--hover .text {
+      color: rgba(255, 150, 100, 0.8); /* Cam nhạt */
+    }
+
+   .container.bottom-right--hover .text {
+      color: rgba(100, 200, 255, 0.8); /* Xanh lam nhạt */
+    }
+
+   .container.center--hover .text {
+      color: rgb(250, 157, 172); /* Màu mặc định */
+    }
+  </style>
+</head>
+<body>
+     <audio id="background-music" autoplay loop>
+  <source src="./audio.mp3" type="audio/mpeg">
+</audio>
+  <div class="container">
+  </div>
+
+  <button class="btn btn--stripe" id="trigger-btn"> <i class="fa-solid fa-heart"></i></button>
+
+<script>
+  const texts = [
+    "I Love You",
+    "Em bé chinhh iuuu",
+    "Happy ❤️🩷🥰💕",
+    "Thật tuyệt khi có em", 
+    "Anh iuu Chị 🩷🤍"
+  ];
+
+  let depthIndex = 0;
+  const padding = 10;
+  const container = document.querySelector('.container');
+
+  const generateText = () => {
+    const text = document.createElement('div');
+    text.classList.add('text');
+    text.innerText = texts[Math.floor(Math.random() * texts.length)];
+
+    const maxDepth = 50;
+    const depth = depthIndex % maxDepth;
+
+    const scale = 1 - (depth * 0.015);
+    const fontSize = 18 - depth * 0.2;
+    const duration = 5000 + depth * 150;
+
+    const minFontSize = 6;
+    const maxFontSize = 18;
+    const normalized = (fontSize - minFontSize) / (maxFontSize - minFontSize);
+    const colorOpacity = 0.3 + normalized * 0.7;
+
+    const x = padding + Math.random() * (window.innerWidth - 2 * padding);
+    const y = padding + Math.random() * 80;
+
+    text.style.left = `${x}px`;
+    text.style.top = `${y}px`;
+    text.style.fontSize = `${fontSize}px`;
+    text.style.transform = `scale(${scale})`;
+    text.style.zIndex = 100 - depth;
+    text.style.animationDuration = `${duration / 1000}s`;
+    text.style.color = `rgba(250, 157, 172, ${colorOpacity.toFixed(2)})`;
+
+    container.appendChild(text);
+
+    setTimeout(() => {
+      text.remove();
+    }, duration);
+
+    depthIndex++;
+  };
+
+  // Xử lý mousemove trên container
+  const body = document.querySelector('body')
+  body.addEventListener('mousemove', (e) => {
+    const screenMidpointX = window.innerWidth / 2;
+    const screenMidpointY = window.innerHeight / 2;
+    const mouseX = e.clientX;
+    const mouseY = e.clientY;
+    const middleZoneStartX = screenMidpointX - 200;
+    const middleZoneEndX = screenMidpointX + 200;
+    const middleZoneStartY = screenMidpointY - 200;
+    const middleZoneEndY = screenMidpointY + 200;
+
+    let angleY = 0;
+    let angleX = 0;
+    const maxAngle = Math.PI / 6; // 30 độ
+
+    // Xóa các class trạng thái trước đó
+    container.classList.remove(
+      'left--hover', 'right--hover', 'top--hover', 'bottom--hover',
+      'top-left--hover', 'top-right--hover', 'bottom-left--hover', 'bottom-right--hover',
+      'center--hover'
+    );
+
+    // Kiểm tra vùng
+    if (mouseX < middleZoneStartX && mouseY < middleZoneStartY) {
+      // Vùng top-left
+      angleY = -maxAngle; // Xoay phải (trục Y)
+      angleX = maxAngle; // Xoay xuống (trục X)
+      container.classList.add('top-left--hover');
+    } else if (mouseX > middleZoneEndX && mouseY < middleZoneStartY) {
+      // Vùng top-right
+      angleY = maxAngle; // Xoay trái
+      angleX = maxAngle; // Xoay xuống
+      container.classList.add('top-right--hover');
+    } else if (mouseX < middleZoneStartX && mouseY > middleZoneEndY) {
+      // Vùng bottom-left
+      angleY = -maxAngle; // Xoay phải
+      angleX = -maxAngle; // Xoay lên
+      container.classList.add('bottom-left--hover');
+    } else if (mouseX > middleZoneEndX && mouseY > middleZoneEndY) {
+      // Vùng bottom-right
+      angleY = maxAngle; // Xoay trái
+      angleX = -maxAngle; // Xoay lên
+      container.classList.add('bottom-right--hover');
+    } else if (mouseX < middleZoneStartX) {
+      // Vùng left
+      angleY = -maxAngle; // Xoay phải
+      container.classList.add('left--hover');
+    } else if (mouseX > middleZoneEndX) {
+      // Vùng right
+      angleY = maxAngle; // Xoay trái
+      container.classList.add('right--hover');
+    } else if (mouseY < middleZoneStartY) {
+      // Vùng top
+      angleX = maxAngle; // Xoay xuống
+      container.classList.add('top--hover');
+    } else if (mouseY > middleZoneEndY) {
+      // Vùng bottom
+      angleX = -maxAngle; // Xoay lên
+      container.classList.add('bottom--hover');
+    } else {
+      // Vùng center
+      container.classList.add('center--hover');
+    }
+
+    // Tính matrix3d cho xoay trục Y và X
+    const cosY = Math.cos(angleY);
+    const sinY = Math.sin(angleY);
+    const cosX = Math.cos(angleX);
+    const sinX = Math.sin(angleX);
+
+    // Ma trận xoay trục Y
+    const matrixY = [
+      cosY, 0, sinY, 0,
+      0, 1, 0, 0,
+      -sinY, 0, cosY, 0,
+      0, 0, 0, 1
+    ];
+
+    // Ma trận xoay trục X
+    const matrixX = [
+      1, 0, 0, 0,
+      0, cosX, -sinX, 0,
+      0, sinX, cosX, 0,
+      0, 0, 0, 1
+    ];
+
+    // Nhân ma trận X và Y
+    const matrix3d = [
+      matrixX[0] * matrixY[0] + matrixX[1] * matrixY[4] + matrixX[2] * matrixY[8] + matrixX[3] * matrixY[12],
+      matrixX[0] * matrixY[1] + matrixX[1] * matrixY[5] + matrixX[2] * matrixY[9] + matrixX[3] * matrixY[13],
+      matrixX[0] * matrixY[2] + matrixX[1] * matrixY[6] + matrixX[2] * matrixY[10] + matrixX[3] * matrixY[14],
+      matrixX[0] * matrixY[3] + matrixX[1] * matrixY[7] + matrixX[2] * matrixY[11] + matrixX[3] * matrixY[15],
+      matrixX[4] * matrixY[0] + matrixX[5] * matrixY[4] + matrixX[6] * matrixY[8] + matrixX[7] * matrixY[12],
+      matrixX[4] * matrixY[1] + matrixX[5] * matrixY[5] + matrixX[6] * matrixY[9] + matrixX[7] * matrixY[13],
+      matrixX[4] * matrixY[2] + matrixX[5] * matrixY[6] + matrixX[6] * matrixY[10] + matrixX[7] * matrixY[14],
+      matrixX[4] * matrixY[3] + matrixX[5] * matrixY[7] + matrixX[6] * matrixY[11] + matrixX[7] * matrixY[15],
+      matrixX[8] * matrixY[0] + matrixX[9] * matrixY[4] + matrixX[10] * matrixY[8] + matrixX[11] * matrixY[12],
+      matrixX[8] * matrixY[1] + matrixX[9] * matrixY[5] + matrixX[10] * matrixY[9] + matrixX[11] * matrixY[13],
+      matrixX[8] * matrixY[2] + matrixX[9] * matrixY[6] + matrixX[10] * matrixY[10] + matrixX[11] * matrixY[14],
+      matrixX[8] * matrixY[3] + matrixX[9] * matrixY[7] + matrixX[10] * matrixY[11] + matrixX[11] * matrixY[15],
+      matrixX[12] * matrixY[0] + matrixX[13] * matrixY[4] + matrixX[14] * matrixY[8] + matrixX[15] * matrixY[12],
+      matrixX[12] * matrixY[1] + matrixX[13] * matrixY[5] + matrixX[14] * matrixY[9] + matrixX[15] * matrixY[13],
+      matrixX[12] * matrixY[2] + matrixX[13] * matrixY[6] + matrixX[14] * matrixY[10] + matrixX[15] * matrixY[14],
+      matrixX[12] * matrixY[3] + matrixX[13] * matrixY[7] + matrixX[14] * matrixY[11] + matrixX[15] * matrixY[15]
+    ];
+
+    const matrix3dString = `matrix3d(${matrix3d.map(n => n.toFixed(6)).join(',')})`;
+
+    // Áp dụng transform cho tất cả các phần tử .text
+    const textElements = container.querySelectorAll('.text');
+    textElements.forEach((text) => {
+      const scale = text.style.transform.match(/scale\(([^)]+)\)/)?.[1] || 1;
+      text.style.transform = `scale(${scale}) ${matrix3dString}`;
+    });
+  });
+
+  // Reset transform và class khi chuột rời khỏi container
+  body.addEventListener('mouseleave', () => {
+    container.classList.remove(
+      'left--hover', 'right--hover', 'top--hover', 'bottom--hover',
+      'top-left--hover', 'top-right--hover', 'bottom-left--hover', 'bottom-right--hover',
+      'center--hover'
+    );
+    const textElements = container.querySelectorAll('.text');
+    textElements.forEach((text) => {
+      const scale = text.style.transform.match(/scale\(([^)]+)\)/)?.[1] || 1;
+      text.style.transform = `scale(${scale})`;
+    });
+  });
+
+    const audio = document.getElementById("background-music");
+
+    const triggerBtn = document.querySelector('#trigger-btn');
+    triggerBtn.addEventListener("click", ()=> {
+        container.style.display = 'initial'
+        audio.play();
+        triggerBtn.style.display = 'none'
+    })
+
+  // Tạo chữ mới liên tục
+  setInterval(generateText, 150);
+</script>
+</body>
+</html>
